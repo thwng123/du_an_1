@@ -30,17 +30,30 @@
             <div class="product-color">
                 <h3>Color</h3>
                 <select name="color_name" id="">
-                    <option value="Đen">Đen</option>
-                    <option value="Trắng">Trắng</option>
+                    <?php
+                        foreach($loadColor as $key){
+                            
+                            
+                    ?>
+                        <option value="<?php echo $key['color_id']?>"><?php echo $key['color_name']?></option>
+                    <?php
+                        }
+                    ?>
                 </select>
             </div>
 
             <div class="product-size">
                 <h3>Size</h3>
                 <select name="size_name" id="">
-                    <option value="S">S</option>
-                    <option value="M">M</option>
-                    <option value="L">L</option>
+                <?php
+                        foreach($loadSize as $key){
+                            
+                            
+                    ?>
+                        <option value="<?php echo $key['size_id']?>"><?php echo $key['size_name']?></option>
+                    <?php
+                        }
+                    ?>
                 </select>
             </div>
 

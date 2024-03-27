@@ -27,6 +27,12 @@ function checkUser($username,$password){
     return $row;
 }
 
+function email_exist($email)
+{
+    $sql = "SELECT * FROM `user` WHERE `email` = '$email'";
+    return pdo_query_value($sql) > 0;
+}
+
 // function checkUser($email){
 //     $sql = "SELECT * FROM `user` WHERE username='".$username."'";
 //     $row = pdo_query_one($sql);

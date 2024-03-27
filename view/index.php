@@ -25,6 +25,8 @@
                     extract($onesp);
                     $spcl = loadone_sanphamcl($product_id,$cate_id);
                     $dstop4 = load_all_top4();
+                    $loadColor = load_color();
+                    $loadSize = load_size();
                     include 'chitietsanpham.php';
                 }else{
                     include 'home.php';
@@ -76,6 +78,9 @@
                         }
                         if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
                             $errors['email'] = "Email không hợp lệ.";
+                        }
+                        if(email_exist($email)){
+                            $errors['email'] = "Email đã tồn tại.";
                         }
               
                      

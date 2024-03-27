@@ -111,6 +111,21 @@ function load_all_top4(){
     return $sp;
 }
 
+function load_color(){
+    $sql="SELECT `color_id`, `color_name` FROM `color` WHERE 1";
+    $sp = pdo_query($sql);
+    return $sp;
+}
+
+function load_size(){
+    $sql="SELECT * FROM `size` WHERE 1";
+    $sp = pdo_query($sql);
+    return $sp;
+}
+
+
+
+
 function updatesp($ten,$gia,$tenanh,$mota,$soluong,$danhmuc,$id){
     if($tenanh!=""){
         $sql="UPDATE `products` SET

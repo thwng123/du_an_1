@@ -57,18 +57,45 @@ function pdo_query_one($sql)
         unset($conn);
     }
 }
-function pdo_query_value($sql)
+// function pdo_query_value($sql)
+// {
+//     $sql_args = array_slice(func_get_args(), 1);
+//     try {
+//         $conn = pdo_get_connection();
+//         $stmt = $conn->prepare($sql);
+//         $stmt->execute($sql_args);
+//         $rows = $stmt->fetchAll();
+//         return $rows;
+//     } catch (PDOException $e) {
+//         throw $e;
+//     } finally {
+//         unset($conn);
+//     }
+// }
+
+function pdo_query_value($sql, $params = [])
 {
-    $sql_args = array_slice(func_get_args(), 1);
     try {
         $conn = pdo_get_connection();
         $stmt = $conn->prepare($sql);
-        $stmt->execute($sql_args);
-        $rows = $stmt->fetchAll();
-        return $rows;
+        $stmt->execute($params);
+
+        $row = $stmt->fetch(PDO::FETCH_NUM); // Fetch numerically indexed row
+        return $row ? $row[0] : null;
     } catch (PDOException $e) {
-        throw $e;
+        throw new Exception("Failed to query value: " . $sql . " - Error: " . $e->getMessage());
     } finally {
-        unset($conn);
+        $conn = null; // Close the connection
+    }
+}
+
+
+function pdo_check_data($sql, $params = [])
+{
+    try {
+        // Call pdo_query_value and check if the result (number of rows) is greater than 0
+        return pdo_query_value($sql, $params) > 0;
+    } catch (PDOException $e) {
+        throw new Exception("Failed to check data: " . $sql . " - Error: " . $e->getMessage());
     }
 }
