@@ -36,9 +36,54 @@
             <button ><i class="fa-solid fa-search" style="font-size: 17px; color:#747474;padding:1px 6px "></i></button>
         </div>   -->
         <div class="login">
-            <a href="index.php?act=dangnhap"> <i class="fa-solid fa-user" style="font-size: 20px; color:black; margin-right:15px "></i></a> 
-            
-            <a href="#" class="cart"><i class="fa-solid fa-shopping-basket" style=" font-size: 20px;color:black "></i></a> 
+            <!-- <a href="index.php?act=dangnhap"> <i class="fa-solid fa-user" style="font-size: 20px; color:black; margin-right:15px "></i></a>  -->
+            <?php 
+                if(isset($_SESSION['username'])){
+                    extract($_SESSION['username']);
+                
+            ?>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="color:red;background:white; box-sizing: border-box;border:none">
+                      
+                    
+
+                      <?php
+                        if(!empty($_SESSION['username']['image'])){
+                      ?>
+
+                        <img src="../image/<?= $_SESSION['username']['image']?>" alt="" style="width: 35px;height:35px; border-radius:25px">
+
+                      <?php
+                        }else{
+                      ?>
+                        <?= $_SESSION['username']['username']?>
+                      <?php
+                        }
+                      ?>
+                        
+
+                      
+                    </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Đơn hàng</a></li>
+                            <li><a class="dropdown-item" href="index.php?act=capnhattk">Tài khoản của tôi</a></li>
+                            <li><a class="dropdown-item" href="index.php?act=thoat">Đăng xuất</a></li>
+                        </ul>
+                </div>
+            <?php
+                }else{
+
+                
+            ?>
+                
+                <a href="index.php?act=dangnhap"> <i class="fa-solid fa-user" style="font-size: 20px; color:black;  "></i></a> 
+                <a href="#" class="cart"><i class="fa-solid fa-cart-shopping" style=" font-size: 20px;color:black;margin-right:15px "></i></a> 
+            <?php
+                }
+            ?>
+            <!-- <a href="#" class="cart"><i class="fa-solid fa-cart-shopping" style=" font-size: 20px;color:black;margin-right:15px "></i></a>  -->
+               <!-- <a href="index.php?act=dangnhap"> <i class="fa-solid fa-user" style="font-size: 20px; color:black;  "></i></a>  -->
 
         </div>
     </header>
@@ -50,6 +95,10 @@
             <a href="#">Blog</a>
             <a href="index.php?act=gioithieu">Về chúng tôi</a>
         </div>
-      
+
+        <!-- <div class="cart">
+            <a href="#" class="cart"><i class="fa-solid fa-cart-shopping" style=" font-size: 20px;color:black;margin-right:15px "></i></a> 
+        </div>
+       -->
     
     </nav>

@@ -10,6 +10,7 @@ header {
     padding: 1rem;
     display: flex;
     justify-content: space-around;
+   
 }
 
  /* .sreach {
@@ -61,7 +62,12 @@ nav {
     background-color: #fff;
     padding: 0.5rem 1.4rem 0.5rem 1.4rem;
     /* text-align: center; */
+    display: flex;
+    justify-content: space-between;
+    max-width: 1550px;
 }
+
+
 .menu {
     margin-left: 178px;
 }
@@ -667,9 +673,53 @@ input[type="password"], input[type="email"] {
 
     
 
-  /* text-align: center; */
+.form-user {
+    max-width: 550px;
+    
+    margin: 0 auto;
+    border: 1px solid #747474;
+    border-radius: 10px;
+    /* height: 400px; */
+    box-shadow:  2px 2px gray;
+    padding: 0 30px 10px;
+
+}
+
+/* .form-user .hoso {
+   margin: 20px;
+} */
+
+.form-user .hoso h1 {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.5rem;
+    margin: 0;
+    margin-top: 10px;
+}
+
+.form-user .hoso span {
+    font-size: 14px;
+    line-height: 1.0625rem;
+    margin-top: 3px;
+}
+
+.form-container form label {
+    font-size: 14px;
+    color: rgba(85,85,85,.8);
+    text-align: right;
+}
 
 
+.box-container form .form-group input[type="text"],
+input[type="password"], input[type="email"] {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  
+  padding: 0 20px;
+  height: 48px;
+  
+} 
 
 
 

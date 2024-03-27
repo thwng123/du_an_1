@@ -125,13 +125,7 @@
                             }else {
                                 $thongbao = "Tên người dùng hoặc mật khẩu không chính xác.";
                             }
-                        }
-                        
-                
-                       
-                       
-                      
-                       
+                        }     
                     
                 }
                 
@@ -139,6 +133,13 @@
                 break;
 
             
+
+            case 'capnhattk':
+              
+                
+          
+                include 'capnhattk.php';
+                break;
 
             case 'search':
               
@@ -152,6 +153,13 @@
           
                 include 'search.php';
                 break;
+
+            case 'thoat':
+              
+                session_unset();
+                echo '<script>window.location.href = "index.php?act=home"</script>';
+                break;
+           
 
             
             
