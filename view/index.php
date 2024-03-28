@@ -135,7 +135,21 @@
             
 
             case 'capnhattk':
-              
+                if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+                    // SELECT `user_id`, `username`, `password`, `email`, `phone`, `role`, `image` FROM `user` WHERE 1
+                    $user_id = $_POST['user_id'];
+                    $username = $_POST['username'];
+                    $password = $_POST['password'];
+                    $email = $_POST['email'];
+                    $phone = $_POST['phone'];
+                    $anh = $_FILES['image'];
+                    $tenanh = $anh['name'];
+
+                    updatekh1($username,$password,$email,$phone,$tenanh,$user_id);
+                    move_uploaded_file($anh['tmp_name'],'../image/'.$tenanh);
+                    $_SESSION['username'] = checkUser($username,$password);
+                    header("location: index.php?act=capnhattk");
+                }
                 
           
                 include 'capnhattk.php';

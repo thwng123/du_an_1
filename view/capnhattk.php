@@ -16,6 +16,11 @@
     <hr>
 
     <div class="form-container">
+         <?php
+                if(isset($_SESSION['username']) && (is_array($_SESSION['username']))){
+                    extract($_SESSION['username']);
+                }
+            ?>
         <form action="#" method="post" enctype="multipart/form-data">
             <div class="info-user">
                 <div class="form-group">
@@ -44,6 +49,7 @@
                 <label for="password">Chọn ảnh:</label><br>
                 <input type="file" name="image"  style="width:450px;padding:10px;border: 1px solid #ccc;border-radius: 5px;height: 48px;">
            </div>
+           <input type="hidden" name="user_id" value="<?= $user_id?>">
             <div class="form-group" >
                 <button type="submit" style="width:70px; padding:0 20px; height:40px;border:none; color:white;margin-top:10px; background: rgb(238, 77, 45);">Lưu</button>
             </div>

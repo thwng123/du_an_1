@@ -86,6 +86,28 @@ function updatekh($ten,$matkhau,$email,$so,$vaitro,$tenanh,$id){
     }
     pdo_execute($sql);
 }
+function updatekh1($username,$password,$email,$phone,$tenanh,$user_id){
+    if($tenanh!=""){
+        $sql="UPDATE `user` SET
+    
+     `username`=' $username',
+     `password`=' $password',
+     `email`=' $email',
+     `phone`=' $phone',
+     `image`='$tenanh' WHERE user_id=".$user_id;
+  
+    }else{
+        $sql="UPDATE `user` SET
+    
+     `username`=' $username',
+     `password`=' $password',
+     `email`=' $email',
+     `phone`=' $phone',
+      WHERE user_id=".$user_id;
+    
+    }
+    pdo_execute($sql);
+}
 
 
 
