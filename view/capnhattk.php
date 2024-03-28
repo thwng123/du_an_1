@@ -25,28 +25,29 @@
             <div class="info-user">
                 <div class="form-group">
                     <label for="username">  Tên đăng nhập:</label><br>
-                    <input type="text" id="username" name="username"  style="width:450px;padding: 5px;border: 1px solid #ccc;border-radius: 5px;padding: 0 20px;height: 48px;">
+                    <input type="text" id="username" name="username" value="<?= $username?>"  style="width:450px;padding: 5px;border: 1px solid #ccc;border-radius: 5px;padding: 0 20px;height: 48px;">
                 </div>
                 <div class="form-group">
                     <label for="email">Email:</label><br>
-                    <input type="email" id="email" name="email"  style="width:450px">
+                    <input type="email" id="email" name="email" value="<?= $email?>"  style="width:450px">
                 </div>
                 <div class="form-group">
-                    <label for="username">  Địa chỉ:</label><br>
-                    <input type="text" id="address" name="address"  style="width:450px;padding: 5px;border: 1px solid #ccc;border-radius: 5px;padding: 0 20px;height: 48px;">
+                    <label for="address">  Địa chỉ:</label><br>
+                    <input type="text" id="address" name="address" value="<?= $address?>"  style="width:450px;padding: 5px;border: 1px solid #ccc;border-radius: 5px;padding: 0 20px;height: 48px;">
                 </div>
                 <div class="form-group">
-                    <label for="username">  Số điện thoại:</label><br>
-                    <input type="number" id="phone" name="phone"  style="width:450px;padding: 5px;border: 1px solid #ccc;border-radius: 5px;padding: 0 20px;height: 48px;">
+                    <label for="phone">  Số điện thoại:</label><br>
+                    <input type="number" id="phone" name="phone" value="<?= $phone?>"  style="width:450px;padding: 5px;border: 1px solid #ccc;border-radius: 5px;padding: 0 20px;height: 48px;">
                 </div>
                 <div class="form-group">
                     <label for="password">Mật khẩu:</label><br>
-                    <input type="password" id="password" name="password" value="password123"style="width:450px" >
+                    <input type="password" id="password" name="password" value="<?= $password?>" style="width:450px" >
                 </div>
             </div>
            <div class="img-user">
-                <img src="" alt="">
-                <label for="password">Chọn ảnh:</label><br>
+            <label for="password">Chọn ảnh:</label><br>
+                <img src="../image/<?= $_SESSION['username']['image']?>" alt="" style="width: 100px;height:100px">
+             
                 <input type="file" name="image"  style="width:450px;padding:10px;border: 1px solid #ccc;border-radius: 5px;height: 48px;">
            </div>
            <input type="hidden" name="user_id" value="<?= $user_id?>">
@@ -56,3 +57,5 @@
         </form>
     </div>
 </div>
+
+<hr style="max-width:1100px; margin:0 auto; margin-top:35px;margin-bottom:35px;">
